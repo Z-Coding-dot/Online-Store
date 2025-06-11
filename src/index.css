@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
+@import "tailwindcss";
+
+
+@theme{
+
+    --color-black-100: #000000;
+    --color-white-100: #F2F0F1;
+}
+
+@layer base{
+    body{
+        background-color: var(--color-white-100);
+        font-family: "Inter", sans-serif;
+    }
+    h1,h2,h3,h4,h5,h6{
+        font-family: "Poppins", sans-serif;
+    }
+}
+
+@layer components {
+    @keyframes spin {
+         from{
+            transform: rotate(0,
+                0,
+                0,
+                0deg);
+         }
+         to{
+            transform: rotate(360deg);
+         }
+    }
+    .spin{
+        animation: spin 30s linear infinite;
+    }
+
+    @keyframes spin1 {
+         from{
+            transform: rotateY(0deg)
+         }
+         to{    
+            transform: rotateY(36deg);
+         }
+    }
+    .spin1{
+        animation: spin1 10s linear infinite;
+    }
+}
+ 
