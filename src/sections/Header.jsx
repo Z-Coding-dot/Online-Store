@@ -4,31 +4,43 @@ import { FiShoppingCart } from "react-icons/fi";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useState } from "react";
 import clsx from 'clsx';
+import { Link as LinkScroll } from "react-scroll";
 
 
 const Header = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [user, setUser] = useState(false)
+    
+    const NavLink = ({title}) =>(
+    <LinkScroll
+     onClick={() => setIsOpen(false)}
+     to={title} 
+     offset={-100}
+     smooth spy 
+    activeClass='active' className='leading-[24px] transition-color duration-500
+    cursor-pointer max-lg:my-4 max-lg:text-[32px] max-lg:text-semibold'>{title}</LinkScroll>
+);
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full">
-      <div className="container h-16 max-lg:px-4 px-30 flex items-center justify-between bg-white">
+      <div className="container h-16 max-lg:px-4 px-30 flex items-center justify-between bg-white shadow-lg ">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="lg:hidden cursor-pointer"
         >
           <IoMenu size={26} />
         </button>
+        <LinkScroll to="/" smooth spy offset={-100} className="flex left-0 max-lg:justify-center">
         <a className="max-lg:flex-1 max-lg:ml-4">
           <img
             src="/images/logo.png"
             alt="logo"
             width={115}
             height={55}
-            className="w-70 h-auto max-lg:w-30"
-          />
+            className="w-70 h-auto max-lg:w-30 cursor-pointer"/>
         </a>
+        </LinkScroll>
 
         <div
           className={clsx(
@@ -40,16 +52,20 @@ const Header = () => {
             <nav className="max-lg:relative max-lg:z-2">
               <ul className="flex gap-8 items-center max-lg:block max-lg:px-10 max-lg:w-full max-lg:text-3xl max-lg:font-semibold max-lg:py-5">
                 <select className="max-lg:w-full max-lg:mb-5 cursor-pointer font-bold hover:text-gray-600">
+                  <LinkScroll to="topSelling" smooth spy offset={-100}>
                   <option value="shop">Shop</option>
-                  <option value="shop">Best Sellers</option>
-                  <option value="shop">Gifts</option>
+                  <option value="Best Sellers">Best Sellers</option>
+                  <option value="Gifts">Gifts</option>
+                  </LinkScroll>
                 </select>
                 <li className="max-lg:mb-5 cursor-pointer font-bold hover:text-gray-600">
-                  On Sale
+                <NavLink title="Top Selling"/>
                 </li>
-                <li className="max-lg:mb-5 cursor-pointer font-bold hover:text-gray-600">
-                  New Arrivals
+
+                <li className="max-lg:mb-5 cursor-pointer font-bold mb- hover:text-gray-600">
+                <NavLink title="New Arrivals"/>
                 </li>
+
                 <li className="max-lg:mb-5 cursor-pointer font-bold hover:text-gray-600">
                   Brands
                 </li>

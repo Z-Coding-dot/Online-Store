@@ -4,17 +4,21 @@ import Hero from './sections/Hero';
 import NewArrivals from './sections/NewArrivals';
 import TopSelling from './sections/TopSelling';
 import  axios  from "axios";
+import Loader from './components/Loader';
+import CustomersComments from './sections/CustomersComments';
 
 const App = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
    const fetchData = () => {
+    setLoading(true);
+    setError('');
     axios
-      .get('https://dummyjson.com/products?limit=12')
+      .get('https://dummyjson.com/products?limit=20')
       .then((res) => {
-        console.log(res.data.products);
+        console.log(res.data.products)
         setProducts(res.data.products);
       })
       .catch((err) => {
@@ -30,28 +34,15 @@ const App = () => {
     fetchData();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="flex justify-center py-20">
-          Loading...
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="bg-red-100 p-6 rounded text-center my-10 max-w-lg mx-auto">
-        <h2 className="text-xl mb-2">Error</h2>
-        <p>{error}</p>
-      </div>
-    );
-  }
   return (
     <div className='overflow-hidden'>
       <Header/>
       <Hero/>
+      {loading && (<div className='flex justify-center py-40'> {<Loader/>} </div>)}
+      {error && (<div> <h2 className='text-red-500 text-4xl text-center my-12 mx-auto'>Something Went Wrong! 🤔 {error}</h2> </div>)}
       <NewArrivals products={products}/>
-      <TopSelling products={products.slice(4)}/>
+      <TopSelling products={products}/>
+      <CustomersComments products={products} />
     </div>
   );
 }

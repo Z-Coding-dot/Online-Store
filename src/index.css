@@ -46,5 +46,10 @@
     .spin1{
         animation: spin1 10s linear infinite;
     }
+
+    .active{
+        color: blueviolet;
+        text-decoration: underline;
+    }
 }
  

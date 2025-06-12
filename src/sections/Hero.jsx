@@ -1,8 +1,10 @@
 import { brand } from "../constants/data"
+import { Element } from "react-scroll";
 
 const Hero = () => {
   return (
     <section>
+      <Element name="/">
       <div className="container max-lg:px-4 px-30">
         <div className="flex max-lg:flex-wrap flex-row items-center justify-between gap-20">
           <div className="mt-40 max-lg:mt-30 w-1/2 max-lg:w-auto mb-20">
@@ -51,6 +53,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      </Element>
       <div className=" bg-black text-white h-[120px]">
         <div className="flex flex-wrap justify-around h-full w-full items-center uppercase  ">
           <h1 className="max-lg:text-[25px] text-3xl font-bold ">Versace</h1>
