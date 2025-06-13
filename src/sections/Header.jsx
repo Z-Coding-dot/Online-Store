@@ -23,8 +23,8 @@ const Header = () => {
 );
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full">
-      <div className="container h-16 max-lg:px-4 px-30 flex items-center justify-between bg-white shadow-lg ">
+    <header className="fixed top-0 left-0 z-50 w-full flex items-center justify-center">
+      <div className="container h-16 max-lg:px-4 px-30  flex items-center justify-between bg-white shadow-lg ">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="lg:hidden cursor-pointer"
@@ -48,9 +48,10 @@ const Header = () => {
             isOpen ? "max-lg:opacity-100" : "max-lg:opacity-0"
           )}
         >
-          <div className="flex items-center justify-center max-lg:relative max-lg:flex max-lg:flex-col max-lg:min-h-screen max-lg:over-flow-hidden max-lg:bg-gray-200 max-lg:px-6 max-md:px-4">
+          <div className="flex items-center justify-center max-lg:relative max-lg:flex max-lg:flex-col max-lg:min-h-screen max-lg:over-flow-hidden
+           max-lg:bg-gray-200 max-lg:px-6 max-md:px-4">
             <nav className="max-lg:relative max-lg:z-2">
-              <ul className="flex gap-8 items-center max-lg:block max-lg:px-10 max-lg:w-full max-lg:text-3xl max-lg:font-semibold max-lg:py-5">
+              <ul className="flex gap-6  items-center max-lg:block max-lg:px-10 max-lg:w-full max-lg:text-3xl max-lg:font-semibold max-lg:py-5">
                 <select className="max-lg:w-full max-lg:mb-5 cursor-pointer font-bold hover:text-gray-600">
                   <LinkScroll to="topSelling" smooth spy offset={-100}>
                   <option value="shop">Shop</option>

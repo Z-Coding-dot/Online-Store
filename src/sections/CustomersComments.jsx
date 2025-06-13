@@ -44,11 +44,9 @@ const CustomersComments = ({products}) => {
   };
 
   const nextSlide = () =>{
-    sliderRef.current.slickNext()
-  }
+    sliderRef.current.slickNext()}
   const prevSlide = () => {
-    sliderRef.current.slickPrev()
-  }
+    sliderRef.current.slickPrev()}
 
 
   return (
@@ -57,7 +55,7 @@ const CustomersComments = ({products}) => {
             <div className="container max-lg:px-4 px-30">
                 <div className="flex justify-between mx-auto">
                     <h1 className="max-lg:text-2xl text-4xl uppercase font-bold leading-6 tracking-tight mb-5">our happy customers</h1>
-                    <div className="">
+                    <div className="flex justify-center items-center">
                         <button onClick={prevSlide}
                          className="mx-3 hover:bg-gray-600 hover:text-white transition-all duration-500 px-4 py-2 rounded-full cursor-pointer"><FaArrowLeft/></button>
                         <button onClick={nextSlide}

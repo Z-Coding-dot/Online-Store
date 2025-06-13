@@ -15,14 +15,13 @@ const  TopSelling = ({ products }) => {
         {displayed.map((p) => (
           <div
             key={p.id}
-            className="bg-white rounded-2xl shadow-sm p-4 hover:shadow-xl transition-all duration-500 hover:scale-105 cursor-pointer"
-          >
+            className="bg-white rounded-2xl shadow-sm p-4 hover:shadow-xl transition-all duration-500 hover:scale-105 cursor-pointer">
             <img
               src={p.thumbnail}
               alt={p.title}
-              className="w-full h-58 object-contain rounded-lg bg-[#F0EEED]"
+              className="w-full h-58h-auto max-lg: object-contain rounded-lg bg-[#F0EEED]"
             />
-            <h4 className="mt-4 font-semibold text-xl">{p.title}</h4>
+            <h4 className="mt-4 font-semibold text-xl max-lg:text-base max-lg:line-clamp-1">{p.title}</h4>
             <p className="flex gap-1 items-center mt-2 font-bold">
               {'⭐'.repeat(Math.floor(p.rating))}
               {'☆'.repeat(5 - Math.floor(p.rating))}

@@ -20,9 +20,9 @@ const NewArrivals = ({ products }) => {
             <img
               src={p.thumbnail}
               alt={p.title}
-              className="w-full h-58 object-contain rounded-lg bg-[#F0EEED]"
+              className="w-full h-58 max-lg:h-auto object-contain rounded-lg bg-[#F0EEED]"
             />
-            <h4 className="mt-4 font-bold text-xl">{p.title}</h4>
+            <h4 className="mt-4 font-bold text-xl max-lg:line-clamp-1 max-lg:text-base">{p.title}</h4>
             <p className="flex gap-1 items-center mt-2 font-semibold">
               {'⭐'.repeat(Math.floor(p.rating))}
               {'☆'.repeat(5 - Math.floor(p.rating))}
