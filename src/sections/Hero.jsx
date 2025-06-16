@@ -4,7 +4,7 @@ import { Element } from "react-scroll";
 const Hero = () => {
   return (
     <section>
-      <Element name="/">
+      <Element name="hero">
         <div className="container max-lg:px-4 px-30">
           <div className="flex max-lg:flex-wrap flex-row items-center justify-between gap-20">
             <div className="mt-40 max-lg:mt-30 w-1/2 max-lg:w-auto mb-20">
@@ -33,22 +33,22 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="w-1/2 max-lg:mx-auto">
-              <div className="relative max-lg:mt-0 ">
+            <div className="lg:w-1/2 mx-auto">
+              <div className="relative max-lg:-top-15 top-10">
                 <img
                   src="/images/hero.png"
                   alt="hero image"
-                  className="spin1 relative w-full h-full object-contain top-0"
+                  className="spin1 relative w-full h-auto object-contain top-0"
                 />
                 <img
                   src="/images/Vector.png"
                   alt="vector"
-                  className="spin absolute top-0 right-0 z-10 w-25"
+                  className="spin absolute top-0 right-0 z-10 w-25 max-lg:w-18 max-lg:bottom-20"
                 />
                 <img
                   src="/images/Vector.png"
                   alt="vector"
-                  className="spin absolute top-30 max-lg:top-10 left-0 z-10 w-15"
+                  className="spin absolute top-30 left-0 z-10 w-15 max-lg:w-10"
                 />
               </div>
             </div>

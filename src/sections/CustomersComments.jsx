@@ -25,12 +25,14 @@ const CustomersComments = ({products}) => {
     cssEase: "linear",
     pauseOnHover: true,
     pauseOnFocus: true,
-    arrows: false,
+    arrows: true,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 2,
+          arrows: true,
         }
       },
       {
@@ -38,6 +40,7 @@ const CustomersComments = ({products}) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll:1,
+          arrows: true,
         }
       }
     ]

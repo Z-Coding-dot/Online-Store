@@ -4,7 +4,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useState } from "react";
 import clsx from 'clsx';
-import { Link as LinkScroll } from "react-scroll";
+import { Link as LinkScroll, scroller } from "react-scroll";
 
 
 const Header = () => {
@@ -24,51 +24,55 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full flex items-center justify-center">
-      <div className="container h-16 max-lg:px-4 px-30  flex items-center justify-between bg-white shadow-lg ">
+      <div className="container h-16 max-lg:px-4 lg:px-30 max-w-full flex items-center justify-between bg-white shadow-lg ">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden cursor-pointer"
-        >
-          <IoMenu size={26} />
+          className="lg:hidden cursor-pointer"><IoMenu size={26} />
         </button>
-        <LinkScroll to="/" smooth spy offset={-100} className="flex left-0 max-lg:justify-center">
-        <a className="max-lg:flex-1 max-lg:ml-4">
-          <img
-            src="/images/logo.png"
-            alt="logo"
-            width={115}
-            height={55}
-            className="w-70 h-auto max-lg:w-30 cursor-pointer"/>
-        </a>
+        <LinkScroll
+          to="hero" smooth spy offset={-100}>
+          <a className="max-lg:flex-1 max-lg:ml-4">
+            <img
+              src="/images/logo.png"
+              alt="logo"
+              width={115}
+              height={55}
+              className="w-70 h-auto max-lg:w-30 cursor-pointer max-lg:mb-4"
+            />
+          </a>
         </LinkScroll>
 
         <div
           className={clsx(
-            "w-full max-lg:w-full max-lg:fixed max-lg:-z-10 max-lg:top-0 max-lg:left-0 max-lg:opacity-0 transition-all duration-500",
-            isOpen ? "max-lg:opacity-100" : "max-lg:opacity-0"
-          )}
-        >
-          <div className="flex items-center justify-center max-lg:relative max-lg:flex max-lg:flex-col max-lg:min-h-screen max-lg:over-flow-hidden
-           max-lg:bg-gray-200 max-lg:px-6 max-md:px-4">
+            "w-full max-lg:w-full max-lg:fixed max-lg:-z-10 max-lg:top-0 max-lg:left-0" ,
+            "max-lg:h-screen max-lg:overflow-hidden max-lg:opacity-0 transition-all duration-500",
+            isOpen ? "max-lg:opacity-100" : "max-lg:opacity-0 max-lg:-z-10 max-lg:pointer-events-none")}>
+          <div
+            className="flex items-center justify-center max-lg:relative max-lg:flex max-lg:flex-col max-lg:min-h-screen max-lg:over-flow-hidden
+           max-lg:bg-gray-200 "
+          >
             <nav className="max-lg:relative max-lg:z-2">
-              <ul className="flex gap-6  items-center max-lg:block max-lg:px-10 max-lg:w-full max-lg:text-3xl max-lg:font-semibold max-lg:py-5">
-                <select className="max-lg:w-full max-lg:mb-5 cursor-pointer font-bold hover:text-gray-600">
-                  <LinkScroll to="topSelling" smooth spy offset={-100}>
-                  <option value="shop">Shop</option>
-                  <option value="Best Sellers">Best Sellers</option>
-                  <option value="Gifts">Gifts</option>
-                  </LinkScroll>
+              <ul className="flex gap-6 items-center max-lg:block max-lg:px-10 max-lg:w-full max-lg:text-3xl
+               max-lg:font-semibold max-lg:py-5 lg:text-medium">
+                <select
+                  onChange={(e) => {
+                    scroller.scrollTo(e.target.value, {
+                      smooth: true,
+                      offset: -100,
+                      duration: 500,
+                    });
+                    setIsOpen(false);
+                  }}
+                  className="max-lg:w-full max-lg:mb-5 cursor-pointer font-bold hover:text-gray-600"
+                >
+                  <option value="New Arrivals">Shop</option>
+                  <option value="Top Selling">Best Sellers</option>
+                  <option value="contact">Contact Us</option>
+                  <option value="About">About Us</option>
                 </select>
-                <li className="max-lg:mb-5 cursor-pointer font-bold hover:text-gray-600">
-                <NavLink title="Top Selling"/>
-                </li>
-
-                <li className="max-lg:mb-5 cursor-pointer font-bold mb- hover:text-gray-600">
-                <NavLink title="New Arrivals"/>
-                </li>
-
-                <li className="max-lg:mb-5 cursor-pointer font-bold hover:text-gray-600">
-                  Brands
+                <li className="flex justify-between max-lg:flex-col gap-4 max-lg:mb-5 font-bold">
+                  <NavLink title="New Arrivals" />
+                  <NavLink title="Top Selling" />
                 </li>
               </ul>
             </nav>
@@ -80,7 +84,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search for products..."
-              className="px-12 max-lg:mx-5 max-lg:px-10 max-lg:py-1 py-2 w-[577px] bg-gray-300/50 rounded-full focus:outline-none max-lg:border-0 max-lg:w-0 max-lg:bg-white max-lg:group-hover:w-[250px] max-lg:group-hover:bg-gray-300/50 transition-all duration-500"
+              className="px-12 max-lg:mx-5 max-lg:px-10 max-lg:py-1 py-2 lg:w-[507px] bg-gray-300/50 rounded-full focus:outline-none max-lg:border-0 max-lg:w-0 max-lg:bg-white max-lg:group-hover:w-[250px] max-lg:group-hover:bg-gray-300/50 transition-all duration-500"
             />
             <CiSearch
               size={24}
@@ -97,7 +101,9 @@ const Header = () => {
             <ul
               className={clsx(
                 "fixed mt-5 max-lg:right-5 px-4 py-4 rounded-xl ",
-                user ? "opacity-100 bg-gray-300/50 z-2 backdrop-blur-2xl" : "opacity-0"
+                user
+                  ? "opacity-100 bg-gray-300/50 z-2 backdrop-blur-2xl"
+                  : "opacity-0"
               )}
             >
               <li className="cursor-pointer text-sm font-bold w-full px-4 py-2 rounded-full mb-3 hover:text-gray-600">

@@ -1,11 +1,13 @@
 import React from 'react'
 import { FaFacebook, FaGithub, FaInstagram, FaTwitter } from 'react-icons/fa'
 import UpFooter from '../components/UpFooter'
+import { Element } from 'react-scroll'
 
 const Footer = () => {
   return (
     <section>
     <UpFooter/>
+    <Element name={"About"}>
       <div className="container max-lg:px-4 px-30">
         <div className='py-20 px-8 bg-[#F0F0F0] w-full'>
             <div className='grid max-lg:grid-cols-2 grid-cols-5 gap-5'>
@@ -71,6 +73,7 @@ const Footer = () => {
             </div>
         </div>
       </div>
+      </Element>
     </section>
   )
 }

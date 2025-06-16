@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import Header from "./sections/Header";
+import { BrowserRouter as Router,Routes, Route } from "react-router-dom";
 import axios from "axios";
-import Footer from "./sections/Footer";
 import Home from "./Pages/Home";
 import DetailsPage from "./Pages/DetailsPage";
+import NotFound from "./Pages/NotFound";
+import MainLayout from "./components/MainLayout";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -34,21 +34,16 @@ const App = () => {
   }, []);
 
   return (
-    <div className="overflow-hidden">
-      <Header />
-      <main>
+        <Router>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Home products={products} loading={loading} error={error} />
-            }
-          />
-          <Route path="/details/:id" element={<DetailsPage />} />
+          <Route element={<MainLayout/>}>
+          <Route path="/" element={
+              <Home products={products} loading={loading} error={error} />}/>
+          <Route path="/details/:id" element={<DetailsPage products={products} />} />
+          </Route>
+          <Route path="*" element={<NotFound/>} />
         </Routes>
-      </main>
-        <Footer />
-    </div>
+        </Router>
   );
 };
 

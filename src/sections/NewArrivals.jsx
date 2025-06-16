@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Element } from 'react-scroll';
 
 const NewArrivals = ({ products }) => {
@@ -11,24 +12,30 @@ const NewArrivals = ({ products }) => {
       <Element name='New Arrivals'>
       <h2 className="text-center text-4xl font-black uppercase mb-14">New Arrivals</h2>
       
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {displayed.map((p) => (
           <div
-            key={p.id}
-            className="bg-white rounded-2xl shadow-sm p-4 hover:shadow-xl transition-all duration-500 hover:scale-105 cursor-pointer"
-          >
+          key={p.id}
+          className="bg-white rounded-2xl shadow-sm p-4 hover:shadow-xl transition-all duration-500 hover:scale-105 cursor-pointer">
+            <Link to={`/details/${p.id}`}>
             <img
               src={p.thumbnail}
               alt={p.title}
-              className="w-full h-58 max-lg:h-auto object-contain rounded-lg bg-[#F0EEED]"
-            />
+              className="w-full h-58 max-lg:h-auto object-contain rounded-lg bg-[#F0EEED]"/>
+            </Link>
             <h4 className="mt-4 font-bold text-xl max-lg:line-clamp-1 max-lg:text-base">{p.title}</h4>
-            <p className="flex gap-1 items-center mt-2 font-semibold">
+            <p className="flex gap-1 items-center mt-2 font-semibold max-lg:text-sm text-[18px]">
               {'⭐'.repeat(Math.floor(p.rating))}
               {'☆'.repeat(5 - Math.floor(p.rating))}
               <span className="text-md ml-2 font-bold">{p.rating.toFixed(1)}</span>
             </p>
-            <p className="mt-2 font-bold text-lg">${p.price}</p>
+            <span className='flex gap-2 items-center max-lg:text-sm text-wrap'>
+            <p className="mt-2 font-bold text-lg">${(p.price - (p.price * p.discountPercentage / 100)).toFixed(2)}</p>
+            <del className="mt-2 text-lg font-bold text-gray-500">
+                ${p.price}
+              </del>
+              <p className='mt-2 text-sm font-semibold text-red-500 bg-red-200 px-2 rounded-full'>-{Math.floor((p.discountPercentage))}%</p>
+            </span>
           </div>
         ))}
       </div>
