@@ -5,12 +5,18 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { useState } from "react";
 import clsx from 'clsx';
 import { Link as LinkScroll, scroller } from "react-scroll";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 const Header = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [user, setUser] = useState(false)
+
+    // cart
+    const cartItems = useSelector((state) => state.cart.items || []);
+    const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
     
     const NavLink = ({title}) =>(
     <LinkScroll
@@ -27,11 +33,12 @@ const Header = () => {
       <div className="container h-16 max-lg:px-4 lg:px-30 max-w-full flex items-center justify-between bg-white shadow-lg ">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden cursor-pointer"><IoMenu size={26} />
+          className="lg:hidden cursor-pointer"
+        >
+          <IoMenu size={26} />
         </button>
-        <LinkScroll
-          to="hero" smooth spy offset={-100}>
-          <a className="max-lg:flex-1 max-lg:ml-4">
+        <LinkScroll to="hero" smooth spy offset={-100}>
+          <span className="max-lg:flex-1 max-lg:ml-4">
             <img
               src="/images/logo.png"
               alt="logo"
@@ -39,21 +46,27 @@ const Header = () => {
               height={55}
               className="w-70 h-auto max-lg:w-30 cursor-pointer max-lg:mb-4"
             />
-          </a>
+          </span>
         </LinkScroll>
 
         <div
           className={clsx(
-            "w-full max-lg:w-full max-lg:fixed max-lg:-z-10 max-lg:top-0 max-lg:left-0" ,
+            "w-full max-lg:w-full max-lg:fixed max-lg:-z-10 max-lg:top-0 max-lg:left-0",
             "max-lg:h-screen max-lg:overflow-hidden max-lg:opacity-0 transition-all duration-500",
-            isOpen ? "max-lg:opacity-100" : "max-lg:opacity-0 max-lg:-z-10 max-lg:pointer-events-none")}>
+            isOpen
+              ? "max-lg:opacity-100"
+              : "max-lg:opacity-0 max-lg:-z-10 max-lg:pointer-events-none"
+          )}
+        >
           <div
             className="flex items-center justify-center max-lg:relative max-lg:flex max-lg:flex-col max-lg:min-h-screen max-lg:over-flow-hidden
            max-lg:bg-gray-200 "
           >
             <nav className="max-lg:relative max-lg:z-2">
-              <ul className="flex gap-6 items-center max-lg:block max-lg:px-10 max-lg:w-full max-lg:text-3xl
-               max-lg:font-semibold max-lg:py-5 lg:text-medium">
+              <ul
+                className="flex gap-6 items-center max-lg:block max-lg:px-10 max-lg:w-full max-lg:text-3xl
+               max-lg:font-semibold max-lg:py-5 lg:text-medium"
+              >
                 <select
                   onChange={(e) => {
                     scroller.scrollTo(e.target.value, {
@@ -79,7 +92,7 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="flex max-lg:items-center max-lg:justify-center items-center">
+        <div className=" flex max-lg:items-center max-lg:justify-center items-center">
           <div className="flex relative max-lg:-mr-7 group">
             <input
               type="text"
@@ -91,7 +104,14 @@ const Header = () => {
               className="absolute max-lg:top-1 max-lg:left-8 top-2 left-4 text-gray-800 font-bold cursor-pointer"
             />
           </div>
-          <FiShoppingCart size={24} className="mx-3 cursor-pointer" />
+          <Link to={"/cart"}>
+            <FiShoppingCart size={24} className=" mx-3 cursor-pointer" />
+           {itemCount > 0 && (
+          <span className="absolute max-lg:right-16 top-1 right-42 bg-red-500 text-white text-xs
+           font-bold rounded-full px-2 py-0.5">
+            {itemCount}
+          </span>)}
+          </Link>
           <div>
             <FaRegUserCircle
               onClick={() => setUser(!user)}

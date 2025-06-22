@@ -1,31 +1,30 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Element } from "react-scroll";
+import { Link as LinkScroll, } from "react-scroll";
 
-const NewArrivals = ({ products }) => {
-  const [viewAll, setViewAll] = useState(false);
-  const displayed = viewAll ? products : products.slice(0, 4);
+const YouMightLike = ({products}) => {
+
 
   return (
-    <section className="py-16 px-6 bg-white font-sans">
-      <Element name="New Arrivals">
-        <h2 className="text-center text-4xl font-black uppercase mb-14">
-          New Arrivals
-        </h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {displayed.map((p) => (
+    <section className="min-h-screen bg-white">
+      <div className="container px-30 max-lg:px-4 mx-auto py-10">
+        <h1 className="uppercase text-5xl text-black font-bold mb-10 text-center">
+          You Might Also Like
+        </h1>
+        <div className="flex items-center gap-10 max-lg:overflow-x-scroll">
+          {products.slice(12, 16).map((p) => (
             <div
               key={p.id}
-              className="bg-white rounded-2xl shadow-sm p-4 hover:shadow-xl transition-all duration-500 
+              className="bg-white w-300 h-auto rounded-2xl shadow-sm p-4 hover:shadow-xl transition-all duration-500 
                       hover:scale-105 cursor-pointer">
+              
               <Link to={`/details/${p.id}`}>
                 <img
                   src={p.thumbnail}
                   alt={p.title}
                   className="w-full h-58 max-lg:h-auto object-contain rounded-lg bg-[#F0EEED]"
                 />
-              </Link>
+              </Link> 
+               <LinkScroll to="details" smooth spy offset={-100} > 
               <h4 className="mt-4 font-bold text-xl max-lg:line-clamp-1 max-lg:text-base">
                 {p.title}
               </h4>
@@ -49,25 +48,13 @@ const NewArrivals = ({ products }) => {
                 <p className="mt-2 text-sm font-semibold text-red-500 bg-red-200 px-2 rounded-full">
                   -{Math.floor(p.discountPercentage)}%
                 </p>
-              </span>
+              </span> </LinkScroll>      
             </div>
           ))}
         </div>
-
-        {!viewAll && (
-          <div className="text-center mt-10">
-            <button
-              onClick={() => setViewAll(true)}
-              className="px-6 py-2 border rounded-full text-sm font-semibold
-             hover:bg-black hover:text-white transition-all duration-500 cursor-pointer"
-            >
-              View All
-            </button>
-          </div>
-        )}
-      </Element>
+      </div>
     </section>
   );
-};
+}
 
-export default NewArrivals;
+export default YouMightLike

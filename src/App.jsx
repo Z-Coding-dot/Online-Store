@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router,Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import Home from "./Pages/Home";
-import DetailsPage from "./Pages/DetailsPage";
 import NotFound from "./Pages/NotFound";
 import MainLayout from "./components/MainLayout";
+import PageDetails from "./Pages/PageDetails";
+import CartPage from "./Pages/CartPage";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -30,20 +31,23 @@ const App = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    fetchData(); 
   }, []);
 
   return (
-        <Router>
-        <Routes>
-          <Route element={<MainLayout/>}>
-          <Route path="/" element={
-              <Home products={products} loading={loading} error={error} />}/>
-          <Route path="/details/:id" element={<DetailsPage products={products} />} />
-          </Route>
-          <Route path="*" element={<NotFound/>} />
-        </Routes>
-        </Router>
+    <Router>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route
+            path="/"
+            element={
+            <Home products={products} loading={loading} error={error} />}/>
+          <Route path="/details/:id" element={<PageDetails products={products} />}/>
+          <Route path="/cart" element={<CartPage/>} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 };
 
