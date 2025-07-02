@@ -7,7 +7,7 @@ import MainLayout from "./components/MainLayout";
 import PageDetails from "./Pages/PageDetails";
 import CartPage from "./Pages/CartPage";
 import Login from "./Pages/Login";
-import CategoryPage from "../../../CategoryPage";
+import CategoryPage from "./Pages/CategoryPage";
 
 const App = () => {
   const [products, setProducts] = useState([]);
