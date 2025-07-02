@@ -24,9 +24,9 @@ const Login = () => {
     }
 
   return (
-    <section className="relative login-bg flex min-h-screen ">
+    <section className="relative login-bg flex min-h-screen overflow-hidden ">
           <div className="container absolute left-60 max-lg:left-0 max-lg:px-4 px-30 my-10">
-            <h1 className="text-6xl font-bold text-center ml-40 max-lg:ml-0">Welcome! Back</h1>
+            <h1 className="text-6xl font-bold text-center ml-40 max-lg:ml-0 text-[#030742]">Welcome! Back</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto mt-10 p-8 rounded-lg mr-60 max-lg:mr-0">
             <h1 className="text-3xl font-bold text-[#030742] ">Login</h1>
             <div className="flex flex-col mt-15 mb-4">
@@ -42,10 +42,10 @@ const Login = () => {
                 <span onClick={toggle} className="absolute right-5 bottom-6 cursor-pointer">{ showPassword ? <FaEye/> :  <FaEyeSlash/>}</span>
                 </div>
     
-                <div className="flex items-center mt-3">
-                    <input type="checkbox" id="terms" className="size-4"/>
-                    <label htmlFor="terms" className="ml-2 text-[#030742] text-md cursor-pointer">Remember me</label>
-                   <span className="ml-30 text-sm text-[#030742] cursor-pointer  underline"> <a href="#">Forgot your password?</a></span>
+                <div className="flex items-center mt-3 max-md:flex-wrap">
+                    <input type="checkbox" id="terms" className="size-4 max-md:size-3"/>
+                    <label htmlFor="terms" className="ml-2 text-[#030742] text-md cursor-pointer max-md:text-xs">Remember me</label>
+                   <span className="ml-30 max-md:ml-5 max-md:mt-3 text-sm text-[#030742] cursor-pointer  underline max-md:text-xs"> <a href="#">Forgot your password?</a></span>
                 </div>
     
                 <div className="flex justify-evenly items-center mt-12">

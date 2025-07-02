@@ -104,7 +104,7 @@ const Details = ({products}) => {
             <hr className="text-gray-300 my-5 text-sm" />
 
             <h2 className="text-2xl text-gray-600 my-3">Choose Size</h2>
-            <div className="flex gap-5 items-center mt-3">
+            <div className="flex flex-wrap gap-5 items-center mt-3">
               {sizes.map((size, index) => (
                 <div key={index}>
               <button onClick={() => setSelectSize(size)}

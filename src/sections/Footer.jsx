@@ -63,7 +63,7 @@ const Footer = () => {
             <hr className='text-gray-400 my-5' />
             <div className='flex justify-between items-center max-lg:flex-col'>
                 <p className='text-medium text-gray-600'>Shop.co &copy; 2000-2023. All Rights Reserved</p>
-                <div className='flex gap-3 '>
+                <div className='flex gap-3 flex-wrap'>
                     <img src="/images/visaCard.png" alt="visa card" className='cursor-pointer my-3' />
                     <img src="/images/masterCard.png" alt="visa card" className='cursor-pointer my-3' />
                     <img src="/images/payPol.png" alt="visa card" className='cursor-pointer my-3' />

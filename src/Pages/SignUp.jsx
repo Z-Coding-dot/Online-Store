@@ -34,8 +34,8 @@ const SingUP = () => {
     }
 
   return (
-    <section className="relative login-bg flex min-h-screen ">
-      <div className="container absolute left-60 max-lg:left-0 max-lg:px-4 px-30 my-10">
+    <section className="relative login-bg flex min-h-screen">
+      <div className="container absolute left-60 max-lg:left-0 max-lg:px-4 px-30 my-10 max-md:my-30">
         <h1 className="text-6xl font-bold text-center ml-40 max-lg:ml-0">Welcome!</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto mt-10 p-8 rounded-lg mr-60 max-lg:mr-0">
         <h1 className="text-3xl font-bold text-[#030742] ">Sign Up</h1>
@@ -57,8 +57,8 @@ const SingUP = () => {
             </div>
 
             <div>
-                <input type="checkbox" id="terms" className="size-4"/>
-                <label htmlFor="terms" className="ml-2 text-[#030742] text-md cursor-pointer">I agree to the terms and conditions</label>
+                <input type="checkbox" id="terms" className="size-4 max-md:size-3"/>
+                <label htmlFor="terms" className="ml-2 text-[#030742] text-md cursor-pointer max-md:text-xs">I agree to the terms and conditions</label>
             </div>
 
             <div className="flex justify-evenly items-center mt-12">

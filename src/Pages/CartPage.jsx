@@ -29,7 +29,7 @@ const CartPage = () => {
   }
 
   return (
-    <section className="min-h-screen my-30">
+    <section className="min-h-screen my-30 overflow-hidden">
       <div className="container px-30 max-lg:px-4 mx-auto">
         <div className="flex max-lg:my-20 text-md text-gray-500 mb-8 gap-3">
           <Link to="/" className="hover:text-black">Home</Link>
@@ -40,12 +40,12 @@ const CartPage = () => {
       <div className="flex max-lg:flex-col gap-8">
         <div className="relative bg-white w-[715px] max-lg:w-full rounded-xl p-6">
           {cartItems.map((item) => (
-            <div key={item.id} className="flex items-center border-b-1 border-gray-200 py-4">
+            <div key={item.id} className="relative flex flex-wrap max-md:flex-col items-center border-b-1 border-gray-200 py-4">
               <img
                 src={item.images?.[0] || item.thumbnail}
                 alt={item.title}
                 className="size-[124px] bg-[#F0EEED] object-cover rounded-lg mr-4"/>
-              <div className="flex-1">
+              <div className="flex-1 relative">
                 <h2 className="font-bold text-lg max-lg:text-sm">{item.title}</h2>
                 <div className="text-sm text-gray-700 my-3">
                   <span className="text-md text-black font-semibold">Size:</span> {item.size || "Large"}
@@ -54,7 +54,7 @@ const CartPage = () => {
                 </div>
                 <div className="font-bold text-xl mt-2">${item.price}</div>
               </div>
-              <div className="flex items-center rounded-full bg-[#F0EEED] mt-14">
+              <div className="relative flex items-center rounded-full bg-[#F0EEED] mt-14">
                 <button className="px-4 py-2 text-xl cursor-pointer font-bold" onClick={() => dispatch(decreaseQuantity(item.id))}>
                   -
                 </button>
@@ -66,7 +66,7 @@ const CartPage = () => {
               <button
                 className="relative ml-4 cursor-pointer text-red-500 "
                 onClick={() => dispatch(removeFromCart(item.id))}>
-                <RiDeleteBin6Fill className=" absolute -top-15 right-5" /> 
+                <RiDeleteBin6Fill className=" absolute -top-15 right-5 max-md:-top-90 max-md:left-22" /> 
               </button>
             </div>
           ))}

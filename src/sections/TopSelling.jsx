@@ -28,7 +28,7 @@ const  TopSelling = ({ products }) => {
               {'☆'.repeat(5 - Math.floor(p.rating))}
               <span className="text-sm ml-2 font-bold">{p.rating.toFixed(1)}</span>
             </p>
-            <span className='flex gap-2 items-center max-lg:text-sm text-wrap'>
+            <span className='flex flex-wrap gap-2 items-center max-lg:text-sm text-wrap'>
             <p className="mt-2 font-bold text-lg">${(p.price - (p.price * p.discountPercentage / 100)).toFixed(2)}</p>
             <del className="mt-2 text-lg font-bold text-gray-500">
                 ${p.price}

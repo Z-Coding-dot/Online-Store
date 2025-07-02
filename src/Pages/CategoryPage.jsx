@@ -64,12 +64,12 @@ export default function CategoryPage({ products }) {
       <div className="max-w-[1240px] mx-auto px-4">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-semibold capitalize">{category.replace("-", " ")}</h2>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 max-md:gap-2 flex-wrap">
             <p className="text-gray-500 text-sm">
               Showing {paginated.length} of {displayed.length} Products
             </p>
             <select
-              className="border border-gray-300 text-sm rounded px-3 py-1.5"
+              className="border border-gray-300 text-sm rounded px-2 py-1.5"
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
             >

@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section>
       <Element name="hero">
-        <div className="container max-lg:px-4 px-30">
+        <div className="container max-lg:px-4 px-30 overflow-hidden">
           <div className="flex max-lg:flex-wrap flex-row items-center justify-between gap-20">
             <div className="mt-40 max-lg:mt-30 w-1/2 max-lg:w-auto mb-20">
               <h1 className="text-black max-lg:text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-5">

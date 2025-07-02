@@ -36,7 +36,7 @@ const NewArrivals = ({ products }) => {
                   {p.rating.toFixed(1)}
                 </span>
               </p>
-              <span className="flex gap-2 items-center max-lg:text-sm text-wrap">
+              <span className="flex flex-wrap gap-2 items-center max-lg:text-sm text-wrap">
                 <p className="mt-2 font-bold text-lg">
                   $
                   {(p.price - (p.price * p.discountPercentage) / 100).toFixed(
@@ -46,7 +46,7 @@ const NewArrivals = ({ products }) => {
                 <del className="mt-2 text-lg font-bold text-gray-500">
                   ${p.price}
                 </del>
-                <p className="mt-2 text-sm font-semibold text-red-500 bg-red-200 px-2 rounded-full">
+                <p className=" mt-2 text-sm font-semibold text-red-500 bg-red-200 px-2 rounded-full">
                   -{Math.floor(p.discountPercentage)}%
                 </p>
               </span>

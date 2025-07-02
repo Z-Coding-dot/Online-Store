@@ -30,24 +30,24 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full flex items-center justify-center">
-      <div className="container h-16 max-lg:px-4 lg:px-30 max-w-full flex items-center justify-between bg-white shadow-lg ">
+      <div className="container h-16 max-lg:px-4 lg:px-30 max-w-full flex items-center sm:justify-between bg-white shadow-lg ">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="lg:hidden cursor-pointer"
         >
           <IoMenu size={26} />
         </button>
-        <LinkScroll to="hero" smooth spy offset={-100}>
-          <span className="max-lg:flex-1 max-lg:ml-4">
+        <Link to="/" smooth spy offset={-100}>
+          <span className="flex items-center mx-4">
             <img
               src="/images/logo.png"
               alt="logo"
               width={115}
               height={55}
-              className="w-70 h-auto max-lg:w-30 cursor-pointer max-lg:mb-4"
+              className="w-70 h-auto max-lg:w-30 cursor-pointer"
             />
           </span>
-        </LinkScroll>
+        </Link>
 
         <div
           className={clsx(
@@ -93,7 +93,7 @@ const Header = () => {
         </div>
 
         <div className=" flex max-lg:items-center max-lg:justify-center items-center">
-          <div className="flex relative max-lg:-mr-7 group">
+          <div className="flex relative max-lg:-mr-7 max-md:hidden group">
             <input
               type="text"
               placeholder="Search for products..."
@@ -105,12 +105,15 @@ const Header = () => {
             />
           </div>
           <Link to={"/cart"}>
-            <FiShoppingCart size={24} className=" mx-3 cursor-pointer" />
-           {itemCount > 0 && (
-          <span className="absolute max-lg:right-16 top-1 right-42 bg-red-500 text-white text-xs
-           font-bold rounded-full px-2 py-0.5">
-            {itemCount}
-          </span>)}
+            <FiShoppingCart size={24} className="mx-2 max-md:ml-24 cursor-pointer" />
+            {itemCount > 0 && (
+              <span
+                className="absolute max-lg:right-16 top-1 right-42 bg-red-500 text-white text-xs
+           font-bold rounded-full px-2 py-0.5"
+              >
+                {itemCount}
+              </span>
+            )}
           </Link>
           <div>
             <FaRegUserCircle
@@ -120,7 +123,7 @@ const Header = () => {
             />
             <ul
               className={clsx(
-                "fixed mt-5 max-lg:right-5 px-4 py-4 rounded-xl ",
+                "fixed mt-5 px-4 py-4 rounded-xl max-lg:right-10 ",
                 user
                   ? "opacity-100 bg-gray-300/50 z-2 backdrop-blur-2xl"
                   : "opacity-0 pointer-events-none "
@@ -130,16 +133,15 @@ const Header = () => {
                 Account
               </li>
               <Link to={"/signUp"}>
-              <li className="cursor-pointer text-sm font-bold w-full px-4 py-2 rounded-full mb-3 hover:text-gray-600">
-                Sign Up
-              </li>
+                <li className="cursor-pointer text-sm font-bold w-full px-4 py-2 rounded-full mb-3 hover:text-gray-600">
+                  Sign Up
+                </li>
               </Link>
               <Link to={"/login"}>
-              <li className="cursor-pointer text-sm font-bold w-full px-4 py-2 rounded-full mb-3 hover:text-gray-600">
-                Login
-              </li>
+                <li className="cursor-pointer text-sm font-bold w-full px-4 py-2 rounded-full mb-3 hover:text-gray-600">
+                  Login
+                </li>
               </Link>
-             
             </ul>
           </div>
         </div>
