@@ -6,6 +6,8 @@ import NotFound from "./Pages/NotFound";
 import MainLayout from "./components/MainLayout";
 import PageDetails from "./Pages/PageDetails";
 import CartPage from "./Pages/CartPage";
+import Login from "./Pages/Login";
+import CategoryPage from "../../../CategoryPage";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -44,7 +46,9 @@ const App = () => {
             <Home products={products} loading={loading} error={error} />}/>
           <Route path="/details/:id" element={<PageDetails products={products} />}/>
           <Route path="/cart" element={<CartPage/>} />
+          <Route path="/style/:category" element={<CategoryPage products={products} />}/>
         </Route>
+          <Route path="/login" element={<Login/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

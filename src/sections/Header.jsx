@@ -123,18 +123,20 @@ const Header = () => {
                 "fixed mt-5 max-lg:right-5 px-4 py-4 rounded-xl ",
                 user
                   ? "opacity-100 bg-gray-300/50 z-2 backdrop-blur-2xl"
-                  : "opacity-0"
+                  : "opacity-0 pointer-events-none "
               )}
             >
               <li className="cursor-pointer text-sm font-bold w-full px-4 py-2 rounded-full mb-3 hover:text-gray-600">
                 Account
               </li>
+              <Link to={"/login"}>
               <li className="cursor-pointer text-sm font-bold w-full px-4 py-2 rounded-full mb-3 hover:text-gray-600">
                 Sign In
               </li>
               <li className="cursor-pointer text-sm font-bold w-full px-4 py-2 rounded-full mb-3 hover:text-gray-600">
                 Log out
               </li>
+              </Link>
             </ul>
           </div>
         </div>

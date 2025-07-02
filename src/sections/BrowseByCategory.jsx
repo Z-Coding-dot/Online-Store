@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { categories } from "../constants/data";
 
 export default function BrowseByCategory() {
@@ -22,11 +22,13 @@ export default function BrowseByCategory() {
               const spanClass = isSmall ? "sm:col-span-1" : "sm:col-span-2";
 
               return (
+                
                 <button
                   key={name}
                   onClick={() => handleClick(name)}
                   className={`relative w-full rounded-xl overflow-hidden bg-white shadow transition duration-300 transform hover:scale-105 active:scale-100 focus:outline-none ${spanClass}`}
                   style={{ padding: 0, border: "none" }}>
+                  <Link to={`/category/${name}`}>
                   <img
                     src={image}
                     alt={name}
@@ -35,6 +37,7 @@ export default function BrowseByCategory() {
                   <span className="absolute top-2 left-3 bg-white bg-opacity-90 text-black text-sm px-3 py-1 rounded font-semibold shadow-sm capitalize">
                     {name.replace("-", " ")}
                   </span>
+                  </Link>
                 </button>
               );
             })}
