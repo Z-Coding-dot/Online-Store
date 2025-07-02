@@ -24,7 +24,7 @@ const Login = () => {
     }
 
   return (
-    <section className="relative login-bg flex min-h-screen overflow-hidden ">
+    <section className="relative login-bg flex min-h-screen">
           <div className="container absolute left-60 max-lg:left-0 max-lg:px-4 px-30 my-10">
             <h1 className="text-6xl font-bold text-center ml-40 max-lg:ml-0 text-[#030742]">Welcome! Back</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto mt-10 p-8 rounded-lg mr-60 max-lg:mr-0">

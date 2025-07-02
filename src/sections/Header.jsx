@@ -105,7 +105,7 @@ const Header = () => {
             />
           </div>
           <Link to={"/cart"}>
-            <FiShoppingCart size={24} className="mx-2 max-md:ml-24 cursor-pointer" />
+            <FiShoppingCart size={24} className="mx-2 max-md:ml-8 cursor-pointer" />
             {itemCount > 0 && (
               <span
                 className="absolute max-lg:right-16 top-1 right-42 bg-red-500 text-white text-xs
@@ -115,7 +115,7 @@ const Header = () => {
               </span>
             )}
           </Link>
-          <div>
+          <div className="max-lg:ml-10">
             <FaRegUserCircle
               onClick={() => setUser(!user)}
               size={24}
