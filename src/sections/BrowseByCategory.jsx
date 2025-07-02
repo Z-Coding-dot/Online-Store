@@ -26,7 +26,8 @@ export default function BrowseByCategory() {
                 <button
                   key={name}
                   onClick={() => handleClick(name)}
-                  className={`relative w-full rounded-xl overflow-hidden bg-white shadow transition duration-300 transform hover:scale-105 active:scale-100 focus:outline-none ${spanClass}`}
+                  className={`relative w-full rounded-xl overflow-hidden bg-white shadow transition duration-300
+                     transform hover:scale-105 active:scale-100 focus:outline-none ${spanClass}`}
                   style={{ padding: 0, border: "none" }}>
                   <Link to={`/category/${name}`}>
                   <img
@@ -34,7 +35,8 @@ export default function BrowseByCategory() {
                     alt={name}
                     className="w-full h-36 sm:h-44 object-cover"
                     draggable={false}/>
-                  <span className="absolute top-2 left-3 bg-white bg-opacity-90 text-black text-sm px-3 py-1 rounded font-semibold shadow-sm capitalize">
+                  <span className="absolute top-2 left-3 bg-white bg-opacity-90 text-black text-sm px-3 py-1 rounded 
+                      font-semibold shadow-sm capitalize">
                     {name.replace("-", " ")}
                   </span>
                   </Link>

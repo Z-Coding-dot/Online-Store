@@ -6,8 +6,9 @@ import NotFound from "./Pages/NotFound";
 import MainLayout from "./components/MainLayout";
 import PageDetails from "./Pages/PageDetails";
 import CartPage from "./Pages/CartPage";
-import Login from "./Pages/Login";
 import CategoryPage from "./Pages/CategoryPage";
+import SingUP from "./Pages/SignUp";
+import Login from "./Pages/Login";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -48,8 +49,9 @@ const App = () => {
           <Route path="/cart" element={<CartPage/>} />
           <Route path="/style/:category" element={<CategoryPage products={products} />}/>
         </Route>
+          <Route path="/signUp" element={<SingUP/>}/>
           <Route path="/login" element={<Login/>}/>
-        <Route path="*" element={<NotFound />} />
+         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

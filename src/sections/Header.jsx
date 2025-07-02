@@ -129,14 +129,17 @@ const Header = () => {
               <li className="cursor-pointer text-sm font-bold w-full px-4 py-2 rounded-full mb-3 hover:text-gray-600">
                 Account
               </li>
-              <Link to={"/login"}>
+              <Link to={"/signUp"}>
               <li className="cursor-pointer text-sm font-bold w-full px-4 py-2 rounded-full mb-3 hover:text-gray-600">
-                Sign In
-              </li>
-              <li className="cursor-pointer text-sm font-bold w-full px-4 py-2 rounded-full mb-3 hover:text-gray-600">
-                Log out
+                Sign Up
               </li>
               </Link>
+              <Link to={"/login"}>
+              <li className="cursor-pointer text-sm font-bold w-full px-4 py-2 rounded-full mb-3 hover:text-gray-600">
+                Login
+              </li>
+              </Link>
+             
             </ul>
           </div>
         </div>
