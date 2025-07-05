@@ -38,12 +38,12 @@ const Details = ({products}) => {
     <section className="bg-white min-h-screen py-30 max-lg:p-4 px-30">
       <Element name='details' >
           {/* Breadcrumbs */}
-        <div className="flex max-lg:mt-20 text-sm text-gray-500 mb-8 gap-3">
-          <Link to="/" className="hover:text-black">Home</Link>
+        <div className="flex max-lg:mt-20 text-gray-500 mb-8 gap-2">
+          <Link to="/" className="hover:text-black text-sm sm:text-base">Home</Link>
           {' > '}
-          <Link to="/men" className="hover:text-black">{SelectedProduct.category}</Link>
+          <Link to="/men" className="hover:text-black text-sm sm:text-base">{SelectedProduct.category}</Link>
           {' > '}
-          <span className="font-semibold text-black">{SelectedProduct.title}</span>
+          <span className="font-semibold text-black text-sm sm:text-base">{SelectedProduct.title}</span>
         </div>  
       <div className="container flex max-lg:flex-col max-lg:gap-4 justify-between  items-center mx-auto">
         <div className="max-lg:w-full flex max-lg:flex-col-reverse items-center justify-center">
@@ -64,8 +64,8 @@ const Details = ({products}) => {
 
 
         <div className="max-lg:w-full flex flex-col max-lg:pb-10">
-          <div className="px-10">
-            <h1 className="text-4xl max-lg:text-2xl font-bold">{SelectedProduct.title}</h1>
+          <div className="px-4 sm:px-8">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">{SelectedProduct.title}</h1>
             <p className="flex gap-1 items-center mt-2 font-semibold max-lg:text-sm text-[18px]">
               {"⭐".repeat(Math.floor(SelectedProduct.rating))}{" "}
               {"☆".repeat(5 - Math.floor(SelectedProduct.rating))}
@@ -74,17 +74,17 @@ const Details = ({products}) => {
               </span>
             </p>
             <span className="flex gap-5 items-center">
-              <h3 className="my-3 text-4xl max-lg:text-xl font-semibold">
+              <h3 className="my-3 text-2xl max-lg:text-xl font-semibold">
                  ${(SelectedProduct.price - (SelectedProduct.price * SelectedProduct.discountPercentage / 100)).toFixed(2)}
               </h3>
-              <del className="my-3 text-4xl max-lg:text-xl font-semibold text-gray-500">
+              <del className="my-3 text-2xl max-lg:text-xl font-semibold text-gray-500">
                 ${SelectedProduct.price}
               </del>
               <p className="px-3 max-lg:text-xs max-lg:px-2 py-1 bg-red-200 rounded-full text-red-500">
                -{(Math.floor(SelectedProduct.discountPercentage))}% off
               </p>
             </span>
-            <p className="text-xl max-lg:text-sm font-medium text-gray-600 my-3">
+            <p className="text-sm sm:text-base font-medium text-gray-600 my-3">
               {SelectedProduct.description}
             </p>
             <hr className="text-gray-300 my-5 text-sm" />
@@ -119,13 +119,13 @@ const Details = ({products}) => {
             <hr className="text-gray-300 my-5 text-sm" />
 
             <div className="flex mb-5">
-              <div className="flex items-center justify-between w-[170px] h-[52px] max-lg:h-[44px] bg-gray-200 rounded-full px-5 py-3">
+              <div className="flex items-center justify-between w-full sm:w-[170px] h-[52px] max-lg:h-[44px] bg-gray-200 rounded-full px-5 py-3">
                 <button onClick={decreaseItems} className="text-2xl font-bold cursor-pointer">-</button>
                 <p className="text-2xl font-bold">{quantity}</p>
                 <button onClick={increaseItems} className="text-2xl font-bold cursor-pointer">+</button>
               </div>
               <button onClick={handleAddToCart}
-               className="w-[400px] h-[52px] max-lg:h-[44px] text-medium
+               className="sm:w-[400px] w-xs h-[52px] max-lg:h-[44px] text-medium
                ml-5 bg-black text-white rounded-full hover:bg-gray-950 cursor-pointer">
                 Add to Cart
               </button>

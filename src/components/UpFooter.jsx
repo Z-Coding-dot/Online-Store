@@ -10,7 +10,7 @@ const UpFooter = () => {
        bg-black rounded-2xl h-auto py-5 px-10 max-lg:px-4"
       >
         <div className="w-1/2 max-lg:w-full max-lg:px-4 max-lg:mt-5">
-          <h1 className="uppercase text-white max-lg:text-4xl text-5xl font-bold text-wrap">
+          <h1 className="uppercase text-white text-2xl sm:text-3xl md:text-4xl font-bold text-wrap">
             stay upto date about our latest offers
           </h1>
         </div>

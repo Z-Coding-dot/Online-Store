@@ -8,10 +8,10 @@ const Hero = () => {
         <div className="container max-lg:px-4 px-30 overflow-hidden">
           <div className="flex max-lg:flex-wrap flex-row items-center justify-between gap-20">
             <div className="mt-40 max-lg:mt-30 w-1/2 max-lg:w-auto mb-20">
-              <h1 className="text-black max-lg:text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-5">
+              <h1 className="text-black text-4xl sm:text-5xl md:text-6xl font-bold mb-5">
                 FIND CLOTHES THAT MATCHES YOUR STYLE
               </h1>
-              <p className="text-gray-600 mb-5">
+              <p className="text-gray-600 mb-5 text-base sm:text-lg">
                 Browse through our diverse range of meticulously crafted
                 garments, designed to bring out your individuality and cater to
                 your sense of style.
@@ -22,10 +22,10 @@ const Hero = () => {
               <div className="flex flex-wrap gap-10 md:gap-4 mt-10 max-lg:justify-center max-lg:mx-auto">
                 {brand.map((item) => (
                   <div key={item.id}>
-                    <h2 className="max-lg:text-3xl text-4xl font-semibold mb-2">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-2">
                       {item.price.toLocaleString()}+
                     </h2>
-                    <p className="text-gray-600 text-[16px] text-sm">
+                    <p className="text-gray-600 text-sm sm:text-base">
                       {item.descriptions}
                     </p>
                   </div>

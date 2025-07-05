@@ -6,8 +6,8 @@ const YouMightLike = ({products}) => {
 
   return (
     <section className="min-h-screen bg-white">
-      <div className="container px-30 max-lg:px-4 mx-auto py-10">
-        <h1 className="uppercase text-5xl text-black font-bold mb-10 text-center">
+      <div className="container px-30 max-lg:px-4 mx-auto py-10 mb-20 sm:mb-0">
+        <h1 className="uppercase text-2xl sm:text-3xl md:text-4xl text-black font-bold mb-10 text-center">
           You Might Also Like
         </h1>
         <div className="flex items-center gap-10 max-lg:overflow-x-scroll">
@@ -25,7 +25,7 @@ const YouMightLike = ({products}) => {
                 />
               </Link> 
                <LinkScroll to="details" smooth spy offset={-100} > 
-              <h4 className="mt-4 font-bold text-xl max-lg:line-clamp-1 max-lg:text-base">
+              <h4 className="mt-4 font-bold text-base sm:text-lg max-lg:line-clamp-1 max-lg:text-base">
                 {p.title}
               </h4>
               <p className="flex gap-1 items-center mt-2 font-semibold max-lg:text-sm text-[18px]">

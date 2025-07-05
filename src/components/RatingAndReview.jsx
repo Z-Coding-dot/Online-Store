@@ -14,7 +14,7 @@ const RatingAndReview = ({ product }) => {
             <button className="max-lg:hidden flex items-center border px-4 py-2 rounded-full text-gray-700 font-medium">
               Latest ▼
             </button>
-            <button className="bg-black text-white px-6 py-2 rounded-full font-semibold">
+            <button className="bg-black text-white px-4 sm:px-6 text-base sm:text-lg py-2 rounded-full font-semibold">
               Write a Review
             </button>
           </div>

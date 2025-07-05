@@ -7,7 +7,7 @@ const Accordion = () => {
   return (
     <section>
       <div>
-        <h2 className="text-2xl font-bold text-center mb-8 ">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-8 ">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
@@ -17,7 +17,7 @@ const Accordion = () => {
               className="rounded-xl shadow-sm bg-white-100"
             >
               <button
-                className="w-full flex justify-between items-center px-6 py-5 text-lg font-semibold
+                className="w-full flex justify-between items-center px-6 py-5 text-sm sm:text-lg font-semibold
                      focus:outline-none cursor-pointer"
                 onClick={() => setOpenIndex(openIndex === idx ? false : idx)}
               >

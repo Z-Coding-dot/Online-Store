@@ -65,7 +65,7 @@ export default function CategoryPage({ products }) {
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-semibold capitalize">{category.replace("-", " ")}</h2>
           <div className="flex items-center gap-6 max-md:gap-2 flex-wrap">
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-500 text-sm hidden lg:block">
               Showing {paginated.length} of {displayed.length} Products
             </p>
             <select
@@ -179,7 +179,6 @@ export default function CategoryPage({ products }) {
               </div>
             </div>
 
-            {/* Dress Style */}
             <div>
               <h4 className="font-semibold text-sm mb-2">Dress Style</h4>
               <div className="flex flex-col gap-2 text-sm text-gray-700">
@@ -211,19 +210,19 @@ export default function CategoryPage({ products }) {
                 No products match your filters 🧐 Try adjusting them!
               </div>
             ) : (
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                 {paginated.map((product) => (
                   <div
                     key={product.id}
-                    className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition"
-                  >
+                    className="bg-white aspect-w-4 aspect-h-3
+                     rounded-xl p-4 shadow-sm hover:shadow-md transition">
                     <img
                       src={product.thumbnail}
                       alt={product.title}
-                      className="w-full h-48 object-contain rounded mb-3 bg-[#f9f9f9] p-2"
+                      className="w-full max-w-xs sm:max-w-sm md:max-w-md object-contain rounded-xl mb-3 bg-[#f9f9f9] p-2"
                     />
                     <h4 className="text-sm font-medium mb-1">{product.title}</h4>
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex flex-wrap items-center gap-2 text-sm">
                       <span className="text-gray-500 line-through">
                         ${(product.price + product.price * 0.2).toFixed(2)}
                       </span>

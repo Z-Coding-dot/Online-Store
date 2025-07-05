@@ -29,14 +29,14 @@ const CartPage = () => {
   }
 
   return (
-    <section className="min-h-screen my-30 overflow-hidden">
+    <section className="min-h-screen my-20 overflow-hidden">
       <div className="container px-30 max-lg:px-4 mx-auto">
-        <div className="flex max-lg:my-20 text-md text-gray-500 mb-8 gap-3">
+        <div className="flex text-md text-gray-500 mb-8 gap-3">
           <Link to="/" className="hover:text-black">Home</Link>
           {' > '}
           <Link to="/cart" className="text-black">Cart</Link>
         </div>
-      <h1 className="text-4xl font-bold mb-6">YOUR CART</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6">YOUR CART</h1>
       <div className="flex max-lg:flex-col gap-8">
         <div className="relative bg-white w-[715px] max-lg:w-full rounded-xl p-6">
           {cartItems.map((item) => (
@@ -44,30 +44,26 @@ const CartPage = () => {
               <img
                 src={item.images?.[0] || item.thumbnail}
                 alt={item.title}
-                className="size-[124px] bg-[#F0EEED] object-cover rounded-lg mr-4"/>
-              <div className="flex-1 relative">
-                <h2 className="font-bold text-lg max-lg:text-sm">{item.title}</h2>
-                <div className="text-sm text-gray-700 my-3">
+                className="md:size-[124px] bg-[#F0EEED] object-cover rounded-lg mr-4"/>
+                <div className="text-start my-3">
+                <h2 className="font-bold text-base sm:text-lg mt-5">{item.title}</h2>
                   <span className="text-md text-black font-semibold">Size:</span> {item.size || "Large"}
                   <br />
                   <span className="text-md text-black font-semibold">Color:</span> {item.color || "White"}
-                </div>
                 <div className="font-bold text-xl mt-2">${item.price}</div>
-              </div>
-              <div className="relative flex items-center rounded-full bg-[#F0EEED] mt-14">
+                </div>
+              <div className="flex items-center justify-evenly w-full rounded-full bg-[#F0EEED] mt-14">
                 <button className="px-4 py-2 text-xl cursor-pointer font-bold" onClick={() => dispatch(decreaseQuantity(item.id))}>
-                  -
-                </button>
+                  - </button>
                 <span className="mx-2">{item.quantity}</span>
                 <button className="px-4 py-2 text-xl cursor-pointer font-bold" onClick={() => dispatch(increaseQuantity(item.id))}>
-                  +
-                </button>
-              </div>
+                  + </button>
               <button
                 className="relative ml-4 cursor-pointer text-red-500 "
                 onClick={() => dispatch(removeFromCart(item.id))}>
-                <RiDeleteBin6Fill className=" absolute -top-15 right-5 max-md:-top-90 max-md:left-22" /> 
+                <RiDeleteBin6Fill className="mx-4" /> 
               </button>
+              </div>
             </div>
           ))}
         </div>
